@@ -4,7 +4,10 @@
  */
 package com.students.enrollmentsystem;
 
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -17,6 +20,14 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+//        try {
+//            this.setContentPane( ImageIO.read(new File("psaubackground.jpg")));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        JLabel background=new JLabel(new ImageIcon("C:\\Users\\Lenovo\\Desktop\\NetBeansProjects\\EnrollmentSystem\\src\\main\\java\\com\\students\\enrollmentsystem\\psaubackground.jpg"));
+       this.add(background);
+//       pack();
     }
 
     /**
@@ -33,20 +44,22 @@ public class Main extends javax.swing.JFrame {
         mnuAddStudent = new javax.swing.JMenuItem();
         mnuEditStudent = new javax.swing.JMenuItem();
         mnuRemoveStudent = new javax.swing.JMenuItem();
-        mnuAddSubject = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        mnuAddSubject = new javax.swing.JMenuItem();
         mnuEditSubject = new javax.swing.JMenuItem();
         mnuRemoveSubject = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        mnuAddCourse = new javax.swing.JMenuItem();
-        mnuEditCourse = new javax.swing.JMenuItem();
-        mnuRemoveCourse = new javax.swing.JMenuItem();
+        mnuAddSchedule = new javax.swing.JMenuItem();
+        mnuEditSchedule = new javax.swing.JMenuItem();
+        mnuRemoveSchedule = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         mnuEnrollStudent = new javax.swing.JMenuItem();
         mnuUnEnrollStudent = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Enrollment System");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(java.awt.Color.green);
 
         jMenu1.setText("Student");
 
@@ -76,38 +89,83 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        mnuAddSubject.setText("Subject");
+        jMenu2.setText("Subject");
 
-        jMenuItem3.setText("Add Subject");
-        mnuAddSubject.add(jMenuItem3);
+        mnuAddSubject.setText("Add Subject");
+        mnuAddSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAddSubjectActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuAddSubject);
 
         mnuEditSubject.setText("Edit Subject");
-        mnuAddSubject.add(mnuEditSubject);
+        mnuEditSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEditSubjectActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuEditSubject);
 
         mnuRemoveSubject.setText("Remove Subject");
-        mnuAddSubject.add(mnuRemoveSubject);
+        mnuRemoveSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRemoveSubjectActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuRemoveSubject);
 
-        jMenuBar1.add(mnuAddSubject);
+        jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Course");
+        jMenu3.setText("Schedule");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
 
-        mnuAddCourse.setText("Add Course");
-        jMenu3.add(mnuAddCourse);
+        mnuAddSchedule.setText("Add Schedule");
+        mnuAddSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAddScheduleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuAddSchedule);
 
-        mnuEditCourse.setText("Edit Course");
-        jMenu3.add(mnuEditCourse);
+        mnuEditSchedule.setText("Edit Schedule");
+        mnuEditSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEditScheduleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuEditSchedule);
 
-        mnuRemoveCourse.setText("Remove Course");
-        jMenu3.add(mnuRemoveCourse);
+        mnuRemoveSchedule.setText("Remove Schedule");
+        mnuRemoveSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRemoveScheduleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuRemoveSchedule);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Enrollment ");
 
         mnuEnrollStudent.setText("Enroll Student");
+        mnuEnrollStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEnrollStudentActionPerformed(evt);
+            }
+        });
         jMenu4.add(mnuEnrollStudent);
 
         mnuUnEnrollStudent.setText("UnEnroll Student");
+        mnuUnEnrollStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuUnEnrollStudentActionPerformed(evt);
+            }
+        });
         jMenu4.add(mnuUnEnrollStudent);
 
         jMenuBar1.add(jMenu4);
@@ -118,11 +176,11 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 503, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 364, Short.MAX_VALUE)
         );
 
         pack();
@@ -151,6 +209,82 @@ public class Main extends javax.swing.JFrame {
         frame.setTitle("Remove Student");
         frame.setVisible(true);
     }//GEN-LAST:event_mnuRemoveStudentActionPerformed
+
+    private void mnuAddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAddSubjectActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Subject();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Add Subject");
+        frame.setVisible(true);
+    }//GEN-LAST:event_mnuAddSubjectActionPerformed
+
+    private void mnuEditSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEditSubjectActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Subject();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Edit Subject");
+        frame.setVisible(true);
+    }//GEN-LAST:event_mnuEditSubjectActionPerformed
+
+    private void mnuRemoveSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRemoveSubjectActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Subject();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Remove Subject");
+        frame.setVisible(true);
+
+    }//GEN-LAST:event_mnuRemoveSubjectActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void mnuAddScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAddScheduleActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Schedule();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Add Schedule");
+        frame.setVisible(true);
+
+    }//GEN-LAST:event_mnuAddScheduleActionPerformed
+
+    private void mnuEditScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEditScheduleActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Schedule();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Edit Schedule");
+        frame.setVisible(true);
+
+    }//GEN-LAST:event_mnuEditScheduleActionPerformed
+
+    private void mnuRemoveScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRemoveScheduleActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Schedule();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Remove Schedule");
+        frame.setVisible(true);
+
+
+    }//GEN-LAST:event_mnuRemoveScheduleActionPerformed
+
+    private void mnuEnrollStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEnrollStudentActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Enrollment();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Enroll Student");
+        
+        frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+        
+        frame.setVisible(true);
+    }//GEN-LAST:event_mnuEnrollStudentActionPerformed
+
+    private void mnuUnEnrollStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUnEnrollStudentActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new Enrollment();
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("UnEnroll Student");
+        frame.setVisible(true);        
+    }//GEN-LAST:event_mnuUnEnrollStudentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,18 +323,18 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem mnuAddCourse;
+    private javax.swing.JMenuItem mnuAddSchedule;
     private javax.swing.JMenuItem mnuAddStudent;
-    private javax.swing.JMenu mnuAddSubject;
-    private javax.swing.JMenuItem mnuEditCourse;
+    private javax.swing.JMenuItem mnuAddSubject;
+    private javax.swing.JMenuItem mnuEditSchedule;
     private javax.swing.JMenuItem mnuEditStudent;
     private javax.swing.JMenuItem mnuEditSubject;
     private javax.swing.JMenuItem mnuEnrollStudent;
-    private javax.swing.JMenuItem mnuRemoveCourse;
+    private javax.swing.JMenuItem mnuRemoveSchedule;
     private javax.swing.JMenuItem mnuRemoveStudent;
     private javax.swing.JMenuItem mnuRemoveSubject;
     private javax.swing.JMenuItem mnuUnEnrollStudent;

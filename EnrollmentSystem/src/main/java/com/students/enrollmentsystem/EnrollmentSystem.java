@@ -5,7 +5,6 @@
 package com.students.enrollmentsystem;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
 
 /**
  *
@@ -16,7 +15,7 @@ public class EnrollmentSystem {
     public static void main(String[] args) {
         
         EventQueue.invokeLater(() -> {
-            JFrame frame = new Main();
+            Main frame = new Main();
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
